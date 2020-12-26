@@ -3,12 +3,12 @@
 # Table name: partners
 #
 #  id              :integer          not null, primary key
-#  email           :string
+#  email          s :string
 #  name            :string
 #  notes           :text
 #  quota           :integer
 #  send_reminders  :boolean          default(FALSE), not null
-#  status          :integer          default("uninvited")
+#  status          :integer          default(0)
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  organization_id :integer

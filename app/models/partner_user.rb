@@ -1,9 +1,9 @@
-class PartnerUser < PartnersBase
-  self.table_name = "users"
-
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
-
+class PartnerUser < Partners::User
+  # Using this to appease our challenge with using
+  # devise /w a namespaced class like Partners::User
+  #
+  # MODIFY Partners::User AND LEAVE THIS ONE EMPTY
+  #
+  # Inherits from Partners::User which is a model
+  # that is stored in the partner database.
 end

@@ -1,0 +1,34 @@
+<h1> Dashboard For Parnters </h1>
+<h3> You are Partner ID: <%= current_partner_user&.id %></h3>
+<h3> You are Partner Email: <%= current_partner_user&.email %></h3>
+
+<table class="table">
+  <h1> Partner Requests </h1>
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Coments</th>
+      <th scope="col">Content</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% current_partner_user.requests.each do |cp| %>
+      <tr>
+        <td><%= cp.id %></td>
+        <td><%= cp.comments %></td>
+        <td>
+          <% cp.item_requests.each do |ir| %>
+            <span> <%= "#{ir.name} - #{ir.quantity} " %> </span>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<% current_partner_user.requests.each do |cp| %>
+
+<% end %>
+
+<%= delete_button_to destroy_partner_user_session_path, {text: "Log out", icon: "sign-out", no_confirm: true, size: "md"} %>
+

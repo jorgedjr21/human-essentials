@@ -30,8 +30,7 @@
 #  invited_by_id          :integer
 #  organization_id        :integer
 #
-require 'rails_helper'
-
-RSpec.describe PartnerUser, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+class PartnerProfile < PartnersBase
+  self.table_name = "partners"
 end
+

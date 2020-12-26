@@ -23,11 +23,17 @@ def set_up_flipper
 end
 
 Rails.application.routes.draw do
-  devise_for :partner_users
   devise_for :users
+  devise_for :partner_users, controllers: { sessions: "partners/sessions" }
 
   set_up_sidekiq
   set_up_flipper
+
+  # Add route partners/dashboard so that we can define it as partner_user_root
+  get 'partners/dashboard' => 'partners/dashboards#show', as: :partner_user_root
+  namespace :partners do
+    resource :dashboard
+  end
 
   # This is where a superadmin CRUDs all the things
   get :admin, to: "admin#dashboard"
